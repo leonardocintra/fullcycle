@@ -1,20 +1,36 @@
 version: '3.5'
 
 services:
-  laravel:
-    image: leonardoncintra/laravel:prod
-    container_name: laravel
+  app:
+    container_name: app
+    build:
+      context: ./nodejs
     networks:
-      - laranet
-
-  nginx:
-    image: leonardoncintra/nginx:prod
-    container_name: nginx
-    networks:
-      - laranet
+      - node-network
+    volumes:
+      - ./nodejs:/usr/src/app
+    tty: true
     ports:
-      - "8080:80"
+      - "3000:3000"
+    depends_on:
+      - db
+    
+  db:
+    image: mysql:latest
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ALLOW_EMPTY_PASSWOR=true
+    networks:
+      - node-network
 
 networks:
-  laranet:
+  node-network:
     driver: bridge
