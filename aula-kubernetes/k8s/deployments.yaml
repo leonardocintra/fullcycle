@@ -12,11 +12,19 @@ spec:
         app: nodeserver
     spec:
       containers:
-      - name: nodeserver
-        image: "leonardoncintra/hellojs:v5"
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-        - containerPort: 3000
+        - name: nodeserver
+          image: "leonardoncintra/hellojs:v6.3"
+          livenessProbe:
+            httpGet:
+              path: "/health"
+              port: 3000
+            periodSeconds: 5
+            failureThreshold: 1
+            timeoutSeconds: 1
+            successThreshold: 1
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
