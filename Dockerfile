@@ -4,5 +4,5 @@ USER node
 
 WORKDIR /home/node/app
 
-CMD [ "tail", "-f", "/dev/null" ]
+CMD [ "sh", "-c", "npm i && tail -f /dev/null" ]
 
