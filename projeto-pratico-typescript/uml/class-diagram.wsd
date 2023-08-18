@@ -1,0 +1,17 @@
+@startuml class-diagram-category
+
+entity Categoy
+
+Categoy : uuid id
+Categoy : string name
+Categoy : string description
+Categoy : boolean is_active
+Categoy : date created_at
+
+Categoy : create()
+Categoy : update()
+Categoy : activate()
+Categoy : deactivate()
+Categoy : delete()
+
+@enduml
