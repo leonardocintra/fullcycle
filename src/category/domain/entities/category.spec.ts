@@ -1,11 +1,19 @@
 import { omit } from "lodash"
 import { Category } from "./category"
+import { validate as uuidValidate } from 'uuid'
 
 describe('Category Unit Tests', () => {
 
   test('getter of name field', () => {
     const category = new Category({ name: 'Comedia' })
     expect(category.name).toBe('Comedia')
+  })
+
+
+  test('if field', () => {
+    let category = new Category({ name: 'Comedia' })
+    expect(category.id).not.toBeNull()
+    expect(uuidValidate(category.id)).toBeTruthy()
   })
 
 
