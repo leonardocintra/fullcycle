@@ -2,6 +2,50 @@ import { omit } from "lodash"
 import { Category } from "./category"
 
 describe('Category Unit Tests', () => {
+
+  test('getter of name field', () => {
+    const category = new Category({ name: 'Comedia' })
+    expect(category.name).toBe('Comedia')
+  })
+
+  test('getter and setter of description field', () => {
+    let category = new Category({ name: 'Comedia' })
+    expect(category.description).toBeNull()
+
+    category = new Category({ name: 'Comedia', description: 'rindo' })
+    expect(category.name).toBe('Comedia')
+    expect(category.description).toBe('rindo')
+
+    category = new Category({ name: 'Comedia' })
+    category['description'] = 'outra coisa'
+    expect(category.description).toBe('outra coisa')
+
+    category['description'] = undefined
+    expect(category.description).toBeNull()
+
+    category['description'] = null
+    expect(category.description).toBeNull()
+  })
+
+  test('getter and setter of description field', () => {
+    let category = new Category({ name: 'Comedia' })
+    expect(category.description).toBeNull()
+
+    category = new Category({ name: 'Comedia', description: 'rindo' })
+    expect(category.name).toBe('Comedia')
+    expect(category.description).toBe('rindo')
+
+    category = new Category({ name: 'Comedia' })
+    category['description'] = 'outra coisa'
+    expect(category.description).toBe('outra coisa')
+
+    category['description'] = undefined
+    expect(category.description).toBeNull()
+
+    category['description'] = null
+    expect(category.description).toBeNull()
+  })
+
   test('constructor of category tests', () => {
     let category = new Category({ name: 'Terror' })
     let props = omit(category.props, 'created_at')
