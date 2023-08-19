@@ -6,21 +6,21 @@ export type CategoryProperties = {
 }
 
 export class Category {
-  constructor(readonly props: CategoryProperties) { }
+  constructor(public readonly props: CategoryProperties) { }
 
   get name(): string {
-    return this.name;
+    return this.props.name;
   }
 
-  get description(): string {
-    return this.description;
+  get description(): string | undefined {
+    return this.props.description;
   }
 
   get is_active(): boolean | undefined {
-    return this.is_active;
+    return this.props.is_active;
   }
 
-  get created_at(): Date {
-    return this.created_at;
+  get created_at(): Date | undefined {
+    return this.props.created_at;
   }
 }
