@@ -8,6 +8,28 @@ describe('Category Unit Tests', () => {
     expect(category.name).toBe('Comedia')
   })
 
+
+  test('getter and setter of created_at field', () => {
+    let category = new Category({ name: 'Comedia' })
+    expect(category.created_at).toBeInstanceOf(Date)
+
+    const created_at = new Date();
+    category = new Category({ name: 'Comedia', created_at })
+    expect(category.created_at).toBe(created_at)
+  })
+
+
+  test('getter and setter of is_active field', () => {
+    let category = new Category({ name: 'Comedia' })
+    expect(category.is_active).toBeTruthy()
+
+    category = new Category({ name: 'Comedia', is_active: true })
+    expect(category.is_active).toBeTruthy()
+
+    category = new Category({ name: 'Comedia', is_active: false })
+    expect(category.is_active).toBeFalsy()
+  })
+
   test('getter and setter of description field', () => {
     let category = new Category({ name: 'Comedia' })
     expect(category.description).toBeNull()
