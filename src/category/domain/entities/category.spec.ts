@@ -9,11 +9,21 @@ describe('Category Unit Tests', () => {
     expect(category.name).toBe('Comedia')
   })
 
+  // #F1359 - continuar aqui
 
-  test('if field', () => {
-    let category = new Category({ name: 'Comedia' })
-    expect(category.id).not.toBeNull()
-    expect(uuidValidate(category.id)).toBeTruthy()
+  test('test id field', () => {
+    const data = [
+      { props: { name: 'Comedia' } },
+      { props: { name: 'Comedia' }, id: null },
+      { props: { name: 'Comedia' }, id: undefined },
+      { props: { name: 'Comedia' }, id: '8a3cf287-82f8-4180-b3b4-0e8640b13f45' },
+    ]
+
+    data.forEach(i => {
+      const category = new Category(i.props, i.id)
+      expect(category.id).not.toBeNull()
+      expect(uuidValidate(category.id)).toBeTruthy()
+    });
   })
 
 
