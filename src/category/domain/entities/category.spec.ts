@@ -9,8 +9,6 @@ describe('Category Unit Tests', () => {
     expect(category.name).toBe('Comedia')
   })
 
-  // #F1359 - continuar aqui
-
   test('test id field', () => {
     const data = [
       { props: { name: 'Comedia' } },
