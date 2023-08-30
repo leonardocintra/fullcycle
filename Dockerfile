@@ -5,11 +5,10 @@ RUN apt update && apt install -y --no-install-recommends \
     ca-certificates \
     default-jre
 
-
-RUN sudo npm i -g npm
-
 USER node
 
 WORKDIR /home/node/app
+
+RUN sudo npm install -g npm
 
 CMD [ "sh", "-c", "npm i && tail -f /dev/null" ]

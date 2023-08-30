@@ -41,7 +41,8 @@
 				"humao.rest-client",
 				"redjue.git-commit-plugin",
 				"redhat.vscode-yaml",
-				"SonarSource.sonarlint-vscode"
+				"SonarSource.sonarlint-vscode",
+				"TabNine.tabnine-vscode"
 			]
 		}
 	}
