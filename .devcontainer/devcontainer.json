@@ -38,6 +38,7 @@
 				"dbaeumer.vscode-eslint",
 				"eamodio.gitlens",
 				"esbenp.prettier-vscode",
+				"firsttris.vscode-jest-runner",
 				"humao.rest-client",
 				"redjue.git-commit-plugin",
 				"redhat.vscode-yaml",

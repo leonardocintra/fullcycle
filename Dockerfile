@@ -9,6 +9,4 @@ USER node
 
 WORKDIR /home/node/app
 
-RUN sudo npm install -g npm
-
 CMD [ "sh", "-c", "npm i && tail -f /dev/null" ]
