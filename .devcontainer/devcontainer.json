@@ -36,10 +36,12 @@
 		"vscode": {
 			"extensions": [
 				"dbaeumer.vscode-eslint",
+				"eamodio.gitlens",
 				"esbenp.prettier-vscode",
 				"humao.rest-client",
 				"redjue.git-commit-plugin",
-				"redhat.vscode-yaml"
+				"redhat.vscode-yaml",
+				"SonarSource.sonarlint-vscode"
 			]
 		}
 	}
