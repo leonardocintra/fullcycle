@@ -6,6 +6,9 @@ describe("Category Unit Tests", () => {
   test("getter of name field", () => {
     const category = new Category({ name: "Comedia" });
     expect(category.name).toBe("Comedia");
+
+    category["name"] = "Another Category";
+    expect(category.name).toBe("Another Category");
   });
 
   test("test id field", () => {
@@ -18,7 +21,7 @@ describe("Category Unit Tests", () => {
 
     data.forEach((i) => {
       const category = new Category(i.props, i.id);
-      expect(category.uniqueEntityId).not.toBeNull();
+      expect(category.id).not.toBeNull();
       expect(category.uniqueEntityId).toBeInstanceOf(UniqueEntityId);
     });
   });
@@ -119,5 +122,23 @@ describe("Category Unit Tests", () => {
       name: "Romance",
       is_active: true,
     });
+  });
+
+  it("should update a category", () => {
+    const category = new Category({ name: "Comedia" });
+    category.update("Documentario", "Alguma descrição qualquer");
+    expect(category.name).toBe("Documentario");
+    expect(category.description).toBe("Alguma descrição qualquer");
+  });
+
+  it("should active category", () => {
+    const category = new Category({ name: "Comedia", is_active: false });
+    category.activate();
+    expect(category.is_active).toBeTruthy();
+  });
+  it("should disable category", () => {
+    const category = new Category({ name: "Comedia", is_active: true });
+    category.deactivate();
+    expect(category.is_active).not.toBeTruthy();
   });
 });

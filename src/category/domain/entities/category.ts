@@ -16,6 +16,23 @@ export class Category extends BaseEntity<CategoryProperties> {
     this.props.created_at = this.props.created_at ?? new Date();
   }
 
+  update(name: string, description: string) {
+    this.name = name;
+    this.description = description;
+  }
+
+  activate() {
+    this.props.is_active = true;
+  }
+
+  deactivate() {
+    this.props.is_active = false;
+  }
+
+  private set name(value: string) {
+    this.props.name = value;
+  }
+
   get name(): string {
     return this.props.name;
   }
